@@ -1,0 +1,22 @@
+<article class="card" appReveal [appRevealDelay]="revealDelay">
+  <div class="card__top">
+    <h3 class="card__title">{{ project.title }}</h3>
+    <span class="card__tag-featured">{{ project.category }}</span>
+  </div>
+
+  <p class="card__desc">{{ project.description }}</p>
+
+  <p class="card__result">
+    <strong>Resultado:</strong> {{ project.result }}
+  </p>
+
+  <ul class="card__tags">
+    @for (tag of project.tags; track tag) {
+      <li>{{ tag }}</li>
+    }
+  </ul>
+
+  <div class="card__links">
+    <a [href]="project.repoUrl" class="card__link">Ver repositório →</a>
+  </div>
+</article>

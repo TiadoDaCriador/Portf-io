@@ -1,0 +1,15 @@
+# Dependências e builds (caso o ionic-angular/ seja scaffolded/correr aqui)
+node_modules/
+dist/
+www/
+.angular/
+.ionic/
+android/
+ios/
+
+# Editor / SO
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*

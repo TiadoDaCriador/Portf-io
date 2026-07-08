@@ -1,0 +1,14 @@
+<section class="section section--alt" id="projetos">
+  <div class="container">
+    <div class="section-head" appReveal>
+      <p class="eyebrow">Projetos em destaque</p>
+      <h2>Trabalho recente e o que cada projeto resolve.</h2>
+    </div>
+
+    <div class="projects-grid">
+      @for (project of projects; track project.title; let i = $index) {
+        <app-project-card [project]="project" [revealDelay]="i * 0.1" />
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+<section class="section" id="competencias">
+  <div class="container">
+    <div class="section-head" appReveal>
+      <p class="eyebrow">Competências</p>
+      <h2>Ferramentas com que trabalho no dia a dia.</h2>
+    </div>
+
+    <div class="skills-grid">
+      @for (group of skillGroups; track group.title; let i = $index) {
+        <div class="skill-group" appReveal [appRevealDelay]="i * 0.1">
+          <h3 class="skill-group__title">{{ group.title }}</h3>
+          <ul class="skill-list">
+            @for (skill of group.skills; track skill) {
+              <li>{{ skill }}</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</section>

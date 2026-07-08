@@ -1,0 +1,28 @@
+<header class="header" [class.is-scrolled]="isScrolled()">
+  <div class="container header__inner">
+    <a href="#topo" class="logo">Tiago<span>Silva</span></a>
+
+    <nav class="nav" [class.is-open]="isMenuOpen()">
+      @for (link of links; track link.href) {
+        <a [href]="link.href" class="nav__link" (click)="closeMenu()">{{ link.label }}</a>
+      }
+    </nav>
+
+    <div class="header__actions">
+      <ion-button href="#contacto" fill="solid" color="primary" shape="round" size="small" class="cta-btn">
+        Contactar
+      </ion-button>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        [attr.aria-expanded]="isMenuOpen()"
+        aria-controls="nav"
+        [attr.aria-label]="isMenuOpen() ? 'Fechar menu' : 'Abrir menu'"
+        (click)="toggleMenu()"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

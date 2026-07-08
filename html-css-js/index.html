@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiago Silva — Developer Mobile & Web</title>
+<meta name="description" content="Portfólio de Tiago Silva, estudante e developer mobile e web especializado em Ionic Angular, Flutter, Firebase e Analytics.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Tiago Silva — Developer Mobile & Web">
+<meta property="og:description" content="Aplicações mobile e web com foco em resultados mensuráveis. Ionic Angular, Flutter, Firebase, Firestore e Google Analytics.">
+<meta property="og:type" content="website">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+
+<nav>
+  <a href="#topo" class="logo">Tiago<span>Silva</span></a>
+  <div class="nav-links" id="navLinks">
+    <a href="#sobre">Sobre</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#competencias">Competências</a>
+  </div>
+  <div class="nav-actions">
+    <a href="#contacto" class="reach-out">FALE COMIGO →</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main id="conteudo">
+
+  <section class="hero" id="topo">
+    <div class="symbol-grid">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <p class="eyebrow">Developer Mobile & Web · Disponível para estágio e freelance</p>
+    <h1 class="hero-title reveal">TIAGO<br>SILVA</h1>
+    <p class="hero-sub reveal">
+      Estudante e developer focado em <b>Ionic Angular, Flutter e Firebase</b>. Construo
+      aplicações mobile e web que resolvem problemas reais — e uso dados para perceber
+      se estão a funcionar.
+    </p>
+    <div class="hero-actions">
+      <a href="#projetos" class="btn btn-primary">Ver projetos →</a>
+      <a href="#contacto" class="btn btn-ghost">Falar comigo</a>
+    </div>
+  </section>
+
+  <section class="statement" id="sobre">
+    <p class="section-label reveal" style="padding:0;">Sobre mim</p>
+    <h2 class="reveal">FOCO EM CONSTRUIR,<br>NÃO SÓ EM APRENDER</h2>
+    <p class="reveal">
+      Sou estudante e developer mobile e web, com foco em transformar ideias em produtos
+      funcionais e mensuráveis. Trabalho principalmente com <strong>Ionic Angular</strong> e
+      <strong>Flutter</strong> para aplicações multiplataforma, e uso <strong>Firebase</strong> e
+      <strong>Firestore</strong> para construir back-ends rápidos de implementar e de escalar.
+    </p>
+    <p class="reveal">
+      Dou particular atenção à integração de <strong>Google Analytics</strong>, porque acredito
+      que uma aplicação só está verdadeiramente pronta quando conseguimos perceber como está a
+      ser usada e onde pode melhorar. É essa combinação — construir bem e depois validar com
+      dados — que tento aplicar em cada projeto.
+    </p>
+    <p class="reveal">
+      Neste momento procuro uma oportunidade de <strong>estágio</strong>, uma colaboração em
+      regime <strong>freelance</strong> ou o meu primeiro desafio profissional em desenvolvimento,
+      onde possa aplicar este trabalho a projetos reais, com prazos e responsabilidade.
+    </p>
+  </section>
+
+  <p class="section-label reveal" id="projetos">Projetos em destaque</p>
+  <div class="carousel" id="carousel" tabindex="0" role="region" aria-label="Projetos em destaque, desliza ou usa as setas para navegar">
+    <div class="card reveal">
+      <div>
+        <span class="tag">APP MOBILE</span>
+        <h3>FitTrack</h3>
+        <p class="card-desc">
+          App de acompanhamento de treinos para quem treina sozinho e perde a consistência
+          por falta de visibilidade sobre o próprio progresso. Sincroniza dados entre
+          dispositivos e usa eventos de analytics para perceber em que ponto os utilizadores
+          desistem de um plano.
+        </p>
+        <p class="card-result"><strong>Resultado:</strong> em teste com 25 utilizadores beta, a
+          introdução de um sistema de streaks (baseado em eventos do Analytics) aumentou a
+          conclusão de treinos semanais em 32%.</p>
+      </div>
+      <div class="card-bottom">
+        <div class="stack">
+          <span>Ionic Angular</span><span>Capacitor</span><span>Firebase Auth</span>
+          <span>Firestore</span><span>Google Analytics</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div>
+        <span class="tag">WEB APP</span>
+        <h3>MesaFácil</h3>
+        <p class="card-desc">
+          Sistema de reservas para restaurantes pequenos que ainda gerem mesas por telefone
+          ou WhatsApp. Painel de administração com estado das mesas em tempo real e métricas
+          de ocupação por dia e por hora.
+        </p>
+        <p class="card-result"><strong>Resultado:</strong> num piloto com um restaurante local,
+          o tempo diário gasto pela equipa a gerir reservas manualmente reduziu cerca de 40%.</p>
+      </div>
+      <div class="card-bottom">
+        <div class="stack">
+          <span>Angular</span><span>TypeScript</span><span>Firestore (realtime)</span>
+          <span>Firebase Hosting</span><span>Google Analytics</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div>
+        <span class="tag">APP MOBILE</span>
+        <h3>StudyFlow</h3>
+        <p class="card-desc">
+          Plataforma de organização de estudos para estudantes com várias cadeiras e prazos
+          em simultâneo. Sincronização entre telemóvel e tablet, e um dashboard de hábitos de
+          estudo construído a partir de eventos reais de utilização.
+        </p>
+        <p class="card-result"><strong>Resultado:</strong> usado por um grupo de 40 colegas de
+          curso durante um semestre; 78% reportou melhor gestão do tempo de estudo em inquérito
+          informal realizado no final do período.</p>
+      </div>
+      <div class="card-bottom">
+        <div class="stack">
+          <span>Flutter</span><span>Dart</span><span>Firebase</span>
+          <span>Firestore</span><span>Google Analytics</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="services" id="competencias">
+    <div class="service reveal">
+      <div><span class="tag">MOBILE</span><h3>MOBILE</h3></div>
+      <p>Ionic Angular, Flutter, Capacitor.</p>
+    </div>
+    <div class="service reveal">
+      <div><span class="tag">LINGUAGENS</span><h3>WEB</h3></div>
+      <p>Angular, TypeScript, JavaScript, HTML5 / CSS3.</p>
+    </div>
+    <div class="service reveal">
+      <div><span class="tag">DADOS</span><h3>BACKEND</h3></div>
+      <p>Firebase, Firestore, Firebase Auth.</p>
+    </div>
+    <div class="service reveal">
+      <div><span class="tag">PRODUTO</span><h3>ANALYTICS</h3></div>
+      <p>Google Analytics, Firebase Analytics, definição de eventos e métricas.</p>
+    </div>
+  </div>
+
+  <section class="contact" id="contacto">
+    <p class="section-label reveal" style="padding:0;">Chega de falar de mim, vamos falar do seu</p>
+    <h2 class="reveal">PROJETO</h2>
+    <p class="contact-intro reveal">
+      Estou disponível para estágio, projetos freelance ou uma primeira oportunidade em
+      desenvolvimento. Se procuras alguém que construa e também acompanhe resultados, entra
+      em contacto.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:tiago.silva.dev@email.com" class="contact-tile reveal">
+        <span class="tag">EMAIL</span>
+        <span class="value">tiago.silva.dev@email.com</span>
+      </a>
+      <a href="https://linkedin.com/in/tiago-silva-dev" target="_blank" rel="noopener" class="contact-tile reveal">
+        <span class="tag">LINKEDIN</span>
+        <span class="value">linkedin.com/in/tiago-silva-dev</span>
+      </a>
+      <a href="https://github.com/tiagosilva-dev" target="_blank" rel="noopener" class="contact-tile reveal">
+        <span class="tag">GITHUB</span>
+        <span class="value">github.com/tiagosilva-dev</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>© <span id="year"></span> Tiago Silva. Todos os direitos reservados.</span>
+  <span>Feito com código e café</span>
+  <a href="#topo">Voltar ao topo ↑</a>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
