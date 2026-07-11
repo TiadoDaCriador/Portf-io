@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tiago Silva — Developer Mobile & Web</title>
+<title>Tiago Silva — Developer Mobile &amp; Web</title>
 <meta name="description" content="Portfólio de Tiago Silva, estudante e developer mobile e web especializado em Ionic Angular, Flutter, Firebase e Analytics.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
@@ -11,7 +11,35 @@
 <meta property="og:title" content="Tiago Silva — Developer Mobile & Web">
 <meta property="og:description" content="Aplicações mobile e web com foco em resultados mensuráveis. Ionic Angular, Flutter, Firebase, Firestore e Google Analytics.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://tiagosilva.dev">
+<meta property="og:image" content="https://tiagosilva.dev/og-image.png">
+<meta property="og:locale" content="pt_PT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tiago Silva — Developer Mobile & Web">
+<meta name="twitter:description" content="Aplicações mobile e web com foco em resultados mensuráveis. Ionic Angular, Flutter, Firebase, Firestore e Google Analytics.">
+<meta name="twitter:image" content="https://tiagosilva.dev/og-image.png">
+<meta name="theme-color" content="#1c2596">
+<link rel="canonical" href="https://tiagosilva.dev/">
 
+<!-- Dados estruturados para motores de busca (não é executado como script) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Tiago Silva",
+  "jobTitle": "Developer Mobile & Web",
+  "url": "https://tiagosilva.dev/",
+  "knowsAbout": ["Ionic Angular", "Flutter", "Firebase", "Firestore", "Google Analytics"],
+  "sameAs": [
+    "https://linkedin.com/in/tiago-silva-dev",
+    "https://github.com/tiagosilva-dev"
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -24,10 +52,11 @@
     <a href="#sobre">Sobre</a>
     <a href="#projetos">Projetos</a>
     <a href="#competencias">Competências</a>
+    <a href="#contacto">Contacto</a>
   </div>
   <div class="nav-actions">
     <a href="#contacto" class="reach-out">FALE COMIGO →</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -36,115 +65,164 @@
 <main id="conteudo">
 
   <section class="hero" id="topo">
-    <div class="symbol-grid">
-      <span></span><span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span><span></span>
+    <div class="hero-content">
+      <p class="eyebrow">Developer Mobile &amp; Web · Disponível para emprego e freelance</p>
+      <h1 class="hero-title" aria-label="TIAGO SILVA">
+        <span class="reveal-line" aria-hidden="true">TIAGO</span><br>
+        <span class="reveal-line" aria-hidden="true">SILVA</span>
+      </h1>
+      <p class="hero-sub reveal">
+        Estudante e developer focado em <b>Ionic Angular, Flutter e Firebase</b>. Construo
+        aplicações mobile e web que resolvem problemas reais — e uso dados para perceber
+        se estão a funcionar.
+      </p>
+      <div class="hero-actions">
+        <a href="#projetos" class="btn btn-primary">Ver projetos →</a>
+        <a href="#contacto" class="btn btn-ghost">Falar comigo</a>
+      </div>
     </div>
-    <p class="eyebrow">Developer Mobile & Web · Disponível para estágio e freelance</p>
-    <h1 class="hero-title reveal">TIAGO<br>SILVA</h1>
-    <p class="hero-sub reveal">
-      Estudante e developer focado em <b>Ionic Angular, Flutter e Firebase</b>. Construo
-      aplicações mobile e web que resolvem problemas reais — e uso dados para perceber
-      se estão a funcionar.
-    </p>
-    <div class="hero-actions">
-      <a href="#projetos" class="btn btn-primary">Ver projetos →</a>
-      <a href="#contacto" class="btn btn-ghost">Falar comigo</a>
+    <!-- mockup decorativo (telemóvel), sem conteúdo informativo -> escondido de leitores de ecrã -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="phone-mockup">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <span class="phone-statusbar"></span>
+          <div class="phone-card">
+            <span class="phone-line" style="width:70%"></span>
+            <span class="phone-line" style="width:45%"></span>
+          </div>
+          <div class="phone-card">
+            <span class="phone-line" style="width:55%"></span>
+            <span class="phone-line" style="width:80%"></span>
+          </div>
+          <div class="phone-stat">
+            <span class="phone-progress"><span style="width:65%"></span></span>
+            <span class="phone-progress"><span style="width:40%"></span></span>
+          </div>
+          <div class="phone-nav"><span></span><span></span><span></span></div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="statement" id="sobre">
-    <p class="section-label reveal" style="padding:0;">Sobre mim</p>
-    <h2 class="reveal">FOCO EM CONSTRUIR,<br>NÃO SÓ EM APRENDER</h2>
-    <p class="reveal">
-      Sou estudante e developer mobile e web, com foco em transformar ideias em produtos
-      funcionais e mensuráveis. Trabalho principalmente com <strong>Ionic Angular</strong> e
-      <strong>Flutter</strong> para aplicações multiplataforma, e uso <strong>Firebase</strong> e
-      <strong>Firestore</strong> para construir back-ends rápidos de implementar e de escalar.
-    </p>
-    <p class="reveal">
-      Dou particular atenção à integração de <strong>Google Analytics</strong>, porque acredito
-      que uma aplicação só está verdadeiramente pronta quando conseguimos perceber como está a
-      ser usada e onde pode melhorar. É essa combinação — construir bem e depois validar com
-      dados — que tento aplicar em cada projeto.
-    </p>
-    <p class="reveal">
-      Neste momento procuro uma oportunidade de <strong>estágio</strong>, uma colaboração em
-      regime <strong>freelance</strong> ou o meu primeiro desafio profissional em desenvolvimento,
-      onde possa aplicar este trabalho a projetos reais, com prazos e responsabilidade.
-    </p>
+    <div class="statement-content">
+      <p class="section-label flush reveal">Sobre mim</p>
+      <h2 aria-label="FOCO EM CONSTRUIR, NÃO SÓ EM APRENDER">
+        <span class="reveal-line" aria-hidden="true">FOCO EM CONSTRUIR,</span><br>
+        <span class="reveal-line" aria-hidden="true">NÃO SÓ EM APRENDER</span>
+      </h2>
+      <p class="reveal">
+        Sou estudante do <strong>CTeSP em Desenvolvimento Web e Multimédia</strong> na
+        <strong>ESTG</strong> e developer mobile e web, com foco em transformar ideias em produtos
+        funcionais e mensuráveis. Trabalho principalmente com <strong>Ionic Angular</strong> e
+        <strong>Flutter</strong> para aplicações multiplataforma, e uso <strong>Firebase</strong> e
+        <strong>Firestore</strong> para construir back-ends rápidos de implementar e de escalar.
+        Fiz um <strong>estágio de 4 meses na MUsa Software</strong>, onde apliquei estas
+        competências a produtos reais — os dois projetos em destaque mais abaixo nasceram aí.
+      </p>
+      <p class="reveal">
+        Dou particular atenção à integração de <strong>Google Analytics</strong>, porque acredito
+        que uma aplicação só está verdadeiramente pronta quando conseguimos perceber como está a
+        ser usada e onde pode melhorar. É essa combinação — construir bem e depois validar com
+        dados — que tento aplicar em cada projeto.
+      </p>
+      <p class="reveal">
+        Neste momento procuro uma oportunidade de <strong>emprego</strong>, uma colaboração em
+        regime <strong>freelance</strong> ou o meu próximo desafio profissional em desenvolvimento,
+        onde possa aplicar este trabalho a projetos reais, com prazos e responsabilidade.
+      </p>
+    </div>
+    <!-- mockup decorativo (janela de browser + gráfico), reforça o tema "web + dados" do texto -->
+    <div class="about-visual reveal" aria-hidden="true">
+      <div class="browser-mockup">
+        <div class="browser-bar"><span></span><span></span><span></span></div>
+        <div class="browser-body">
+          <span class="browser-line" style="width:85%"></span>
+          <span class="browser-line" style="width:55%"></span>
+          <div class="browser-chart">
+            <span style="height:35%"></span>
+            <span style="height:70%"></span>
+            <span style="height:50%"></span>
+            <span style="height:90%"></span>
+            <span style="height:60%"></span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <p class="section-label reveal" id="projetos">Projetos em destaque</p>
-  <div class="carousel" id="carousel" tabindex="0" role="region" aria-label="Projetos em destaque, desliza ou usa as setas para navegar">
-    <div class="card reveal">
-      <div>
-        <span class="tag">APP MOBILE</span>
-        <h3>FitTrack</h3>
-        <p class="card-desc">
-          App de acompanhamento de treinos para quem treina sozinho e perde a consistência
-          por falta de visibilidade sobre o próprio progresso. Sincroniza dados entre
-          dispositivos e usa eventos de analytics para perceber em que ponto os utilizadores
-          desistem de um plano.
-        </p>
-        <p class="card-result"><strong>Resultado:</strong> em teste com 25 utilizadores beta, a
-          introdução de um sistema de streaks (baseado em eventos do Analytics) aumentou a
-          conclusão de treinos semanais em 32%.</p>
-      </div>
-      <div class="card-bottom">
-        <div class="stack">
-          <span>Ionic Angular</span><span>Capacitor</span><span>Firebase Auth</span>
-          <span>Firestore</span><span>Google Analytics</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="card reveal">
-      <div>
-        <span class="tag">WEB APP</span>
-        <h3>MesaFácil</h3>
-        <p class="card-desc">
-          Sistema de reservas para restaurantes pequenos que ainda gerem mesas por telefone
-          ou WhatsApp. Painel de administração com estado das mesas em tempo real e métricas
-          de ocupação por dia e por hora.
-        </p>
-        <p class="card-result"><strong>Resultado:</strong> num piloto com um restaurante local,
-          o tempo diário gasto pela equipa a gerir reservas manualmente reduziu cerca de 40%.</p>
-      </div>
-      <div class="card-bottom">
-        <div class="stack">
-          <span>Angular</span><span>TypeScript</span><span>Firestore (realtime)</span>
-          <span>Firebase Hosting</span><span>Google Analytics</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="card reveal">
-      <div>
-        <span class="tag">APP MOBILE</span>
-        <h3>StudyFlow</h3>
-        <p class="card-desc">
-          Plataforma de organização de estudos para estudantes com várias cadeiras e prazos
-          em simultâneo. Sincronização entre telemóvel e tablet, e um dashboard de hábitos de
-          estudo construído a partir de eventos reais de utilização.
-        </p>
-        <p class="card-result"><strong>Resultado:</strong> usado por um grupo de 40 colegas de
-          curso durante um semestre; 78% reportou melhor gestão do tempo de estudo em inquérito
-          informal realizado no final do período.</p>
-      </div>
-      <div class="card-bottom">
-        <div class="stack">
-          <span>Flutter</span><span>Dart</span><span>Firebase</span>
-          <span>Firestore</span><span>Google Analytics</span>
-        </div>
-      </div>
-    </div>
+  <h2 class="section-label reveal" id="projetos">Projetos em destaque</h2>
+  <div class="carousel-nav">
+    <button type="button" class="carousel-btn" id="carouselPrev" aria-label="Projeto anterior">←</button>
+    <button type="button" class="carousel-btn" id="carouselNext" aria-label="Próximo projeto">→</button>
   </div>
+  <!-- TODO: os href="#" dos links de repositório/demo/vídeo são placeholders —
+       substituir por cada URL real antes de publicar. -->
+  <section class="carousel" id="carousel" tabindex="0" aria-label="Projetos em destaque, desliza ou usa as setas para navegar">
+    <div class="card reveal">
+      <div>
+        <span class="tag">APP MOBILE</span>
+        <h3>App Sócios</h3>
+        <p class="card-context">Estágio · MUsa Software</p>
+        <p class="card-desc">
+          Aplicação móvel completa de gestão de sócios para associações musicais, com login
+          biométrico, cartão de sócio em QR code, notificações push e integração com uma API
+          REST própria. Suporte multi-idioma (PT/EN/ES) e eliminação de conta (RGPD).
+        </p>
+        <div class="card-stat">
+          <span class="card-stat-number">100%</span>
+          <p class="card-stat-label">dos 574 testes unitários a passar</p>
+          <p class="card-stat-note">Suite de testes completa, na preparação para submissão à App Store e Google Play.</p>
+        </div>
+      </div>
+      <div class="card-bottom">
+        <div class="stack">
+          <span>Ionic Angular</span><span>Capacitor</span><span>REST API (JWT)</span>
+          <span>Firebase</span><span>Sentry</span>
+        </div>
+        <div class="card-links">
+          <a href="#" target="_blank" rel="noopener" class="card-link" data-placeholder="true" title="Link a adicionar brevemente">Repositório<span class="sr-only"> do projeto App Sócios</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a href="#" target="_blank" rel="noopener" class="card-link" data-placeholder="true" title="Link a adicionar brevemente">Demo<span class="sr-only"> do projeto App Sócios</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a href="#" target="_blank" rel="noopener" class="card-link" data-placeholder="true" title="Link a adicionar brevemente">Vídeo<span class="sr-only"> do projeto App Sócios</span><span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
 
-  <div class="services" id="competencias">
+    <div class="card reveal">
+      <div>
+        <span class="tag">APP MOBILE</span>
+        <h3>Maestro Member</h3>
+        <p class="card-context">Estágio · MUsa Software</p>
+        <p class="card-desc">
+          App de gestão de banda musical: dashboard de início, confirmação de presença em
+          eventos, agenda, biblioteca de partituras, cartão de sócio digital e avisos.
+          Construída com Angular Signals para estado reativo.
+        </p>
+        <div class="card-stat">
+          <span class="card-stat-number">6</span>
+          <p class="card-stat-label">ecrãs principais implementados</p>
+          <p class="card-stat-note">Início, confirmações, agenda, partituras, cartão de sócio e avisos — com dados mock, pronta para ligar a uma API real.</p>
+        </div>
+      </div>
+      <div class="card-bottom">
+        <div class="stack">
+          <span>Ionic Angular</span><span>Angular Signals</span><span>Capacitor</span>
+          <span>TypeScript</span><span>SCSS</span>
+        </div>
+        <div class="card-links">
+          <a href="#" target="_blank" rel="noopener" class="card-link" data-placeholder="true" title="Link a adicionar brevemente">Repositório<span class="sr-only"> do projeto Maestro Member</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a href="#" target="_blank" rel="noopener" class="card-link" data-placeholder="true" title="Link a adicionar brevemente">Demo<span class="sr-only"> do projeto Maestro Member</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a href="#" target="_blank" rel="noopener" class="card-link" data-placeholder="true" title="Link a adicionar brevemente">Vídeo<span class="sr-only"> do projeto Maestro Member</span><span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <h2 class="section-label reveal" id="competencias">Competências</h2>
+  <div class="services">
     <div class="service reveal">
-      <div><span class="tag">MOBILE</span><h3>MOBILE</h3></div>
+      <div><span class="tag">APPS</span><h3>MOBILE</h3></div>
       <p>Ionic Angular, Flutter, Capacitor.</p>
     </div>
     <div class="service reveal">
@@ -162,10 +240,12 @@
   </div>
 
   <section class="contact" id="contacto">
-    <p class="section-label reveal" style="padding:0;">Chega de falar de mim, vamos falar do seu</p>
-    <h2 class="reveal">PROJETO</h2>
+    <p class="section-label flush reveal">Chega de falar de mim, vamos falar do seu</p>
+    <h2 aria-label="PROJETO">
+      <span class="reveal-line" aria-hidden="true">PROJETO</span>
+    </h2>
     <p class="contact-intro reveal">
-      Estou disponível para estágio, projetos freelance ou uma primeira oportunidade em
+      Estou disponível para emprego, projetos freelance ou a próxima oportunidade em
       desenvolvimento. Se procuras alguém que construa e também acompanhe resultados, entra
       em contacto.
     </p>
@@ -176,11 +256,11 @@
       </a>
       <a href="https://linkedin.com/in/tiago-silva-dev" target="_blank" rel="noopener" class="contact-tile reveal">
         <span class="tag">LINKEDIN</span>
-        <span class="value">linkedin.com/in/tiago-silva-dev</span>
+        <span class="value">linkedin.com/in/tiago-silva-dev<span class="sr-only"> (abre numa nova aba)</span></span>
       </a>
       <a href="https://github.com/tiagosilva-dev" target="_blank" rel="noopener" class="contact-tile reveal">
         <span class="tag">GITHUB</span>
-        <span class="value">github.com/tiagosilva-dev</span>
+        <span class="value">github.com/tiagosilva-dev<span class="sr-only"> (abre numa nova aba)</span></span>
       </a>
     </div>
   </section>
@@ -193,7 +273,21 @@
   <a href="#topo">Voltar ao topo ↑</a>
 </footer>
 
-<script src="js/script.js"></script>
+<!-- GSAP + ScrollTrigger: reveal letra-a-letra dos títulos principais (ver js/script.js).
+     Se o CDN falhar, script.js verifica window.gsap antes de usar — os títulos
+     continuam legíveis (texto simples), só sem a animação. -->
+<script defer
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+  integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt"
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+  integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d"
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer src="js/script.js"></script>
+<!-- Google Analytics 4 com banner de consentimento (RGPD) — ver js/analytics.js.
+     Só carrega o gtag.js depois de o visitante aceitar. -->
+<script defer src="js/analytics.js"></script>
 
 </body>
 </html>
