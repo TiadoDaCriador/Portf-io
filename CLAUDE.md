@@ -209,15 +209,105 @@ for good. **Do not add a new decorative graphic here without asking first**
 - `html-css-js/index.html` shows Tiago's two real projects, **App Sócios**
   (member management for musical associations — Ionic Angular, Capacitor,
   REST API, biometric login, 574 unit tests) and **Maestro Member** (band
-  management app — Ionic Angular, Angular Signals, Capacitor). Their stat
-  blocks use real, verifiable technical numbers (test pass rate, screen
-  count), not invented business metrics — no illustrative/placeholder
-  projects remain on the site.
+  management app — Ionic Angular, Angular Signals, Capacitor) — no
+  illustrative/placeholder projects remain on the site. They used to each
+  have a `.card-stat` block (big number + caption, e.g. "100% dos 574 testes
+  unitários a passar") highlighting a real, verifiable technical stat, but
+  Tiago had those removed too (2026-07-12) — the class and its CSS are gone,
+  cards now end at `.stack`. Don't re-add a stat block without checking;
+  same reasoning as the removed `.card-links` buttons — he wants the cards
+  simpler than the original design called for, not because the numbers
+  were wrong.
 - Both real projects carry a `.card-context` credit line ("Estágio · MUsa
   Software") — Tiago confirmed both were built during an internship at MUsa
   Software (MUsa is also the name of the REST API/backend App Sócios
   integrates with) and okayed naming the company publicly. Don't remove or
   genericize that credit without checking with him first.
+- **Both cards now have a real screenshot, added 2026-07-12** —
+  `html-css-js/img/app-socios-login.webp` and `/maestro-member-login.webp`,
+  `.card-image` at the top of each `.card` (`width:100%; height:auto;
+  aspect-ratio:600/493; object-fit:cover`, matching a `.card-content` div
+  that now wraps what used to be the card's direct children — see `.card`
+  in `styles.css`). No screenshot existed anywhere in the App Sócios/Maestro
+  Member project folders (checked: no dedicated screenshots/store-listing
+  dir in either), so these were captured live: `npx ng serve` in each
+  project (`Desktop/App_Socios/Socios_App` and `Desktop/maestro_member`,
+  both already have `node_modules`), then a Playwright screenshot of
+  `localhost:<port>/login` (the apps redirect there unauthenticated — no
+  real login was performed, no backend calls needed for this shot).
+  - **The two raw screenshots did NOT have the login card at the same
+    vertical offset** (185px vs 224px from the top, found by scanning
+    pixel colour down the vertical centre for the first near-white row —
+    see the pattern in git history if this needs redoing) — a single
+    shared CSS crop made one card show the full "maestro" wordmark logo
+    and the other cut it off. Fixed by pre-cropping each source PNG
+    individually with `sharp-cli extract <top> 0 414 340` (top =
+    that card's own offset − 60px of background), *then* `resize 600`, so
+    both exported files are already `600×493` with the logo/wordmark at
+    the same relative position — the CSS crop is now just a shared
+    `object-fit:cover` with no further per-image tuning needed. Don't
+    "fix" future misalignment by fiddling with a single shared
+    `object-position`/height again — it doesn't work when the sources
+    themselves differ; re-crop the source files instead.
+  - **`aspect-ratio` + `width:100%` silently does nothing unless
+    `height:auto` is also set** when the `<img>` has HTML `width`/`height`
+    attributes (kept here for the CLS-prevention hint) — those attributes
+    become a UA-stylesheet `height` value that isn't "auto", so
+    `aspect-ratio` has no free dimension to resolve into and the box falls
+    back to the raw `height` attribute value in px (rendered *enormous* —
+    this actually happened here first). `height:auto` in `.card-image` is
+    load-bearing, not decorative; don't remove it.
+  - PNG→WebP via `sharp-cli` (`npx sharp-cli -i in.png -o . -f webp -q 80`
+    for a straight convert, or chain `extract … -- resize 600` for a crop +
+    resize in one pass) — ~85% smaller than the source PNGs.
+  - **Important:** the login screens show "Desenvolvido por: amadeus music
+    center" — a real client name beyond MUsa Software (the dev shop). Tiago
+    explicitly confirmed (2026-07-12) it's fine for that name to be visible
+    publicly — don't crop/blur it out or swap the screenshot without
+    checking, that confirmation was specific to these exact images.
+  - If you ever need to reshoot (e.g. the apps' UI changes): kill whatever's
+    on the dev ports first (`netstat -ano | grep LISTENING` then
+    `taskkill //F //PID`), these are unrelated to this portfolio repo's own
+    dev workflow.
+- **Each project card opens a 7-image lightbox gallery, added 2026-07-12**
+  (Tiago: "quero uma [imagem] de tudo, de cada página"). Images live in
+  `html-css-js/img/gallery/` (`socios-01-login.webp` … `socios-07-*.webp`,
+  same for `maestro-*`, all 700px-wide WebP via `sharp-cli`, ~404KB total for
+  all 14). The `<img class="card-image">` cover shot is wrapped in a
+  `<button class="card-image-wrap">` carrying `data-gallery` (JSON array of
+  image paths) and `data-gallery-alt` (JSON array of captions) — the
+  lightbox itself (`.gallery-overlay`) is built once, lazily, in
+  `js/script.js` and reused for both cards; nothing preloads until a button
+  is actually clicked (verified: 0 requests to `/img/gallery/` on page load,
+  exactly 1 right after the first click). Keyboard: Escape closes and
+  returns focus to the triggering button, ←/→ navigate, index wraps both
+  directions. The `.card-image-wrap` click and the carousel's existing
+  mousedown/mousemove drag-to-scroll don't conflict — verified a real drag
+  gesture scrolls the carousel and does *not* open the lightbox.
+  - **These pages required real authentication** (`auth.guard.ts` in both
+    apps redirects unauthenticated `tabs/*` routes back to `/login`) — Tiago
+    gave test credentials for this one session to log in and capture; they
+    were used only in throwaway scripts in the OS temp scratchpad (deleted
+    after use) and were never written into this repo. Don't assume you have
+    credentials in a future session — if these images ever need
+    redoing, ask Tiago again rather than guessing at an account.
+  - **Excluded on purpose:** App Sócios' "Cartão de Sócio" and "Perfil"
+    pages show a real member's full name, birth date and contact info
+    ("Alexandre José Faria Rego" — Tiago confirmed 2026-07-12 this is a
+    real person, not seed/test data). Those two page screenshots were
+    deliberately left out of the gallery selection. Don't add them (or
+    any other screenshot revealing a third party's personal data) without
+    checking with Tiago first — this is a different bar than the
+    already-cleared organisation names ("amadeus music center", "Sociedade
+    de Instrução e Recreio Darquense", "Banda Musical de Viana do
+    Castelo" — businesses/associations are fine per his earlier
+    confirmation; individual people's personal data is not automatically
+    covered by that and needs its own check).
+  - The selection (6 app pages + the existing login shot, per app) skips
+    empty/loading states that were captured but aren't useful (Bilhetes,
+    Notificações, Documentos, Meus Bilhetes QR on App Sócios; Banda on
+    Maestro Member all rendered empty for this test account) — don't assume
+    every route is worth adding to the gallery if you revisit this.
 - **"Sobre mim" now has real biographical detail, added 2026-07-11:** Tiago
   is currently finishing (last year, not yet concluded — keep the "estudante"
   framing, not "formado"/past tense) a **CTeSP em Desenvolvimento Web e
@@ -228,20 +318,54 @@ for good. **Do not add a new decorative graphic here without asking first**
   "Sobre mim", that wording needs to flip to "em cima"/"acima"). Job-seeking
   language across the site was also changed from "estágio" to "emprego"
   this same session (he's no longer looking for an internship, he's already
-  done one) — see `index.html`'s eyebrow, "Sobre mim"'s closing paragraph,
-  and the contact section's intro, plus `README.md`'s intro line. Don't
-  revert any of these to "estágio" without checking — it wasn't a typo fix,
-  it's a real change in what he's looking for.
-- Repo/demo/video links (`href="#"`, `data-placeholder="true"`) are still
-  placeholders — App Sócios and Maestro Member are private/client-ish repos
-  (real `origin` remotes exist locally, `github.com/TiadoDaCriador/Socios_App`
-  and `/Maestro_Member`, but they 404 publicly — not pushed, or private).
-  Tiago chose to keep them private for now; don't invent public GitHub URLs
-  or link those remotes without checking with him first — per `README.md`,
-  invented metrics/links should never ship in an actual job application.
-- Contact placeholders (`tiago.silva.dev@email.com`,
-  `linkedin.com/in/tiago-silva-dev`, `github.com/tiagosilva-dev`) are in
-  `html-css-js/index.html` — update when real contact info is provided.
+  done one) — see "Sobre mim"'s closing paragraph and the contact section's
+  intro, plus `README.md`'s intro line. Don't revert any of these to
+  "estágio" without checking — it wasn't a typo fix, it's a real change in
+  what he's looking for. The hero eyebrow briefly said "Developer Mobile &
+  Web · Disponível para emprego e freelance" too, but Tiago had that whole
+  availability clause dropped again (2026-07-12) — it's just
+  `<p class="eyebrow">Developer Mobile &amp; Web</p>` now. Availability
+  messaging still lives in the contact section, just not in the hero.
+- **Flutter was removed from the entire site, 2026-07-12 (Tiago's request:
+  "não quero que fales do flutter").** It used to appear in six places —
+  "Sobre mim", the hero subtitle, the "Competências" MOBILE tile, the meta
+  `description`, the Open Graph/Twitter descriptions, and the JSON-LD
+  `knowsAbout` array — all six were edited, not just "Sobre mim". Don't
+  re-add it (e.g. "for consistency" with some other doc/CV) without
+  checking — he doesn't want it associated with him anymore, this wasn't a
+  content-trim, it's a deliberate skill-set correction. In the same edit,
+  "Sobre mim" gained three things it didn't have before: **HTML/CSS** (as
+  its own mention, distinct from Ionic Angular), **protótipos de design**,
+  and **edição de imagem e vídeo** — all tie back to the CTeSP being in
+  "Desenvolvimento Web **e Multimédia**", not just web dev.
+- **The project cards have no Repositório/Demo/Vídeo links (removed
+  2026-07-12, Tiago's request).** They briefly existed as `.card-links` /
+  `.card-link` (`href="#"`, `data-placeholder="true"` placeholders, with a
+  `js/script.js` click-guard and a `.sr-only` "do projeto X" suffix for a11y)
+  but were pulled — Tiago didn't want the buttons at all, not just placeholder
+  URLs. `.card-bottom` now only holds `.stack`. App Sócios and Maestro Member
+  remain private/client-ish repos either way (real `origin` remotes exist
+  locally, `github.com/TiadoDaCriador/Socios_App` and `/Maestro_Member`, but
+  they 404 publicly — not pushed, or private) — don't invent public GitHub
+  URLs or re-add link buttons pointing at those remotes without checking
+  with him first — per `README.md`, invented metrics/links should never
+  ship in an actual job application.
+- **Email and GitHub are real, updated 2026-07-12** (Tiago provided both
+  directly): `mailto:tiago-silva198@hotmail.com` and
+  `https://github.com/TiadoDaCriador` (also in the JSON-LD `sameAs` array
+  near the top of `index.html`, now just `["https://github.com/TiadoDaCriador"]`).
+  **LinkedIn was removed entirely, same session** — not just left as
+  placeholder, the whole `.contact-tile` and its `sameAs` entry are gone
+  (Tiago doesn't want a LinkedIn link shown at all). `.contact-links` is
+  now a 2-column grid (`max-width:620px`), not 3 — if you ever add a third
+  contact method back, revisit that grid and the now-single
+  `nth-child(2)` stagger rule in the `SCROLL REVEAL` section of
+  `styles.css`. Don't re-add a LinkedIn tile "to fill the gap" without
+  checking — the 2-tile layout is intentional, not a placeholder gap.
+- **Footer no longer has "Feito com código e café"** (removed 2026-07-12,
+  Tiago's request) — just the copyright and "Voltar ao topo ↑" now, still
+  `justify-content:space-between` in `footer` (unchanged CSS, just one
+  fewer `<span>`).
 - Also placeholder, added with the deployment infra (see "Deployment & CI"):
   the `tiagosilva.dev` domain baked into meta/SEO files, and the Firebase
   project id in `.firebaserc`. Neither breaks anything left as-is (Firebase

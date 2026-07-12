@@ -12,7 +12,7 @@ body{
   overflow-x:hidden;
 }
 /* menu mobile a ocupar a página toda — impede o scroll de fundo enquanto está aberto */
-body.nav-open{overflow:hidden;}
+body.nav-open, body.gallery-open{overflow:hidden;}
 h1,h2,h3, .display{
   font-family:'Bebas Neue', sans-serif;
   color:var(--navy);
@@ -27,7 +27,7 @@ a{color:inherit; text-decoration:none;}
 }
 .skip-link:focus{left:0;}
 
-/* texto só para leitores de ecrã, remove ambiguidade de links repetidos ("Repositório" x3) */
+/* texto só para leitores de ecrã (ex: avisa que um link abre numa nova aba) */
 .sr-only{
   position:absolute; width:1px; height:1px; padding:0; margin:-1px;
   overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
@@ -183,55 +183,51 @@ nav{
   background:#fff;
   border:1px solid #e5e2da;
   border-radius:16px;
-  padding:24px;
+  overflow:hidden;
   scroll-snap-align:start;
-  display:flex; flex-direction:column; justify-content:space-between;
-  gap:16px;
+  display:flex; flex-direction:column;
   transition:transform .2s;
 }
 .card:hover{transform:translateY(-4px);}
+.card-image-wrap{
+  display:block; position:relative;
+  width:100%; padding:0; margin:0; border:none;
+  background:none; cursor:pointer; font:inherit; text-align:left;
+}
+.card-image{
+  display:block;
+  width:100%; height:auto; aspect-ratio:600/493;
+  object-fit:cover;
+  background:var(--cream);
+}
+.card-image-hint{
+  position:absolute; bottom:12px; right:12px;
+  background:rgba(17,17,17,.75); color:#fff;
+  font-size:11px; font-weight:700; letter-spacing:.3px;
+  padding:6px 12px; border-radius:20px;
+  transition:background .2s;
+}
+.card-image-wrap:hover .card-image-hint,
+.card-image-wrap:focus-visible .card-image-hint{background:var(--navy);}
+.card-image-wrap:focus-visible{outline:2px solid var(--navy); outline-offset:-2px;}
+.card-content{
+  padding:24px;
+  display:flex; flex-direction:column; justify-content:space-between;
+  gap:16px;
+  flex:1;
+}
 .card .tag{font-size:11px; font-weight:700; color:var(--gray); letter-spacing:1px;}
 .card h3{font-size:28px; text-transform:uppercase; margin-top:8px;}
 .card-context{font-size:12px; font-weight:600; color:var(--gray); margin-top:4px;}
 .card-desc{font-size:13px; color:#555; margin-top:10px; line-height:1.5;}
-
-/* estatística de impacto em destaque (número grande + legenda) em vez de dentro do parágrafo corrido */
-.card-stat{
-  background:var(--cream);
-  border-radius:12px;
-  padding:14px 16px;
-  margin-top:14px;
-}
-.card-stat-number{
-  display:block;
-  font-family:'Bebas Neue', sans-serif;
-  font-size:42px;
-  line-height:1;
-  color:var(--navy);
-}
-.card-stat-label{font-size:13px; font-weight:600; color:var(--dark); margin-top:6px; line-height:1.4;}
-.card-stat-note{font-size:11px; color:var(--gray); margin-top:4px; line-height:1.4;}
 .stack{display:flex; flex-wrap:wrap; gap:6px;}
 .stack span{font-size:11px; font-weight:600; background:var(--cream); border:1px solid #e5e2da; border-radius:12px; padding:4px 10px;}
 .card-bottom{display:flex; flex-direction:column; gap:12px;}
 
-/* links de repositório/demo/vídeo — ver TODO junto do carrossel no index.html */
-.card-links{display:flex; flex-wrap:wrap; gap:8px;}
-.card-link{
-  display:inline-flex; align-items:center; gap:4px;
-  font-size:12px; font-weight:700; letter-spacing:.3px;
-  color:var(--navy);
-  border:1px solid var(--navy);
-  border-radius:20px;
-  padding:6px 12px;
-  transition:background .2s, color .2s;
-}
-.card-link:hover, .card-link:focus-visible{background:var(--navy); color:#fff;}
-.card-link .arrow{font-size:12px;}
-
-/* SETAS CARROSSEL */
+/* SETAS CARROSSEL — só em mobile (max-width:800px, ver media query); em desktop
+   o drag-to-scroll + navegação por teclado já chegam, as setas eram redundantes */
 .carousel-nav{
-  display:flex; gap:8px; padding:0 40px; margin-bottom:12px; justify-content:flex-end;
+  display:none; gap:8px; padding:0 40px; margin-bottom:12px; justify-content:flex-end;
 }
 .carousel-btn{
   width:40px; height:40px;
@@ -265,7 +261,7 @@ nav{
 .contact{padding:60px 40px 40px;}
 .contact h2{font-size:min(12vw, 100px); text-transform:uppercase; margin-bottom:16px;}
 .contact-intro{max-width:600px; font-size:15px; color:#444; line-height:1.6; margin-bottom:30px;}
-.contact-links{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; max-width:900px;}
+.contact-links{display:grid; grid-template-columns:repeat(2, 1fr); gap:20px; max-width:620px;}
 .contact-tile{
   border:1px solid #e5e2da; border-radius:16px; padding:20px 24px;
   display:flex; flex-direction:column; gap:6px;
@@ -299,7 +295,6 @@ footer{
 .services .service.reveal:nth-child(3){--reveal-delay:.2s;}
 .services .service.reveal:nth-child(4){--reveal-delay:.3s;}
 .contact-links .contact-tile.reveal:nth-child(2){--reveal-delay:.1s;}
-.contact-links .contact-tile.reveal:nth-child(3){--reveal-delay:.2s;}
 
 @media(prefers-reduced-motion:reduce){
   .reveal{
@@ -327,6 +322,8 @@ footer{
   .hero-visual{display:none;}
   .statement{flex-direction:column; align-items:flex-start;}
   .about-visual{display:none;}
+
+  .carousel-nav{display:flex;}
 
   .nav-toggle{display:flex;}
   .nav-actions{position:relative; z-index:2;}
@@ -369,6 +366,70 @@ footer{
 .consent-banner .btn-primary:hover{background:#fff;}
 .consent-banner .btn-ghost{border:1px solid var(--cream); color:var(--cream); background:none;}
 .consent-banner .btn-ghost:hover{background:var(--cream); color:var(--navy);}
+
+/* GALERIA DE SCREENSHOTS (lightbox), ver js/script.js */
+.gallery-overlay{
+  position:fixed; inset:0;
+  background:rgba(17,17,17,.92);
+  display:flex; align-items:center; justify-content:center;
+  z-index:100;
+  opacity:0; visibility:hidden;
+  transition:opacity .25s ease, visibility 0s linear .25s;
+  padding:20px;
+}
+.gallery-overlay.open{
+  opacity:1; visibility:visible;
+  transition:opacity .25s ease;
+}
+.gallery-figure{
+  display:flex; flex-direction:column; align-items:center; gap:14px;
+  max-width:100%;
+}
+.gallery-image{
+  max-width:min(88vw, 420px);
+  max-height:72vh;
+  border-radius:16px;
+  box-shadow:0 30px 60px rgba(0,0,0,.4);
+  display:block;
+  background:#111;
+}
+.gallery-caption{color:var(--cream); font-size:13px; text-align:center; max-width:420px;}
+.gallery-close{
+  position:absolute; top:20px; right:20px;
+  width:44px; height:44px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.1);
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+  transition:background .2s;
+}
+.gallery-close:hover{background:rgba(255,255,255,.25);}
+.gallery-prev, .gallery-next{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:44px; height:44px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.1);
+  color:#fff;
+  font-size:18px;
+  line-height:1;
+  cursor:pointer;
+  transition:background .2s;
+}
+.gallery-prev:hover, .gallery-next:hover{background:rgba(255,255,255,.25);}
+.gallery-prev{left:12px;}
+.gallery-next{right:12px;}
+.gallery-counter{
+  color:var(--cream); font-size:12px; font-weight:700; letter-spacing:.5px;
+  background:rgba(255,255,255,.12); padding:5px 14px; border-radius:20px;
+}
+@media(max-width:600px){
+  .gallery-prev{left:4px;}
+  .gallery-next{right:4px;}
+  .gallery-close{top:12px; right:12px;}
+}
 
 @media(max-width:480px){
   nav{padding:16px 20px;}

@@ -139,14 +139,15 @@ ficheiros.
   Member, feitos durante o estágio na MUsa Software), com números técnicos
   verificáveis (574 testes, 6 ecrãs) em vez de métricas de negócio
   inventadas.
-- **Contactos**: o email, LinkedIn e GitHub no fim da página ainda são
-  placeholders. Substitui em `index.html` (procura por `tiago.silva.dev`,
-  `tiago-silva-dev` e `tiagosilva-dev`).
-- **Links dos projetos**: os botões "Repositório", "Demo" e "Vídeo" apontam
-  para `#` (`data-placeholder="true"`) — os repos (`Socios_App`,
-  `Maestro_Member`) existem no GitHub mas estão privados/não publicados de
-  propósito. Torna-os públicos e substitui os `href="#"` quando quiseres
-  mostrá-los.
+- **Contactos**: ✅ email (`tiago-silva198@hotmail.com`) e GitHub
+  (`github.com/TiadoDaCriador`) já são reais. O LinkedIn
+  (`linkedin.com/in/tiago-silva-dev`) ainda é placeholder — substitui em
+  `index.html` quando tiveres o perfil real.
+- **Links dos projetos**: os cards não têm botões de Repositório/Demo/Vídeo
+  (removidos a pedido do Tiago). Os repos (`Socios_App`, `Maestro_Member`)
+  existem no GitHub mas estão privados/não publicados de propósito — se um
+  dia quiseres mostrá-los, tens de decidir tornar os repos públicos e voltar
+  a adicionar os links aos cards.
 
 ## 3. Sugestões para melhorares depois
 

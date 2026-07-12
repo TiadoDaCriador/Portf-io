@@ -1,11 +1,5 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// links de repositório/demo/vídeo ainda por preencher (href="#", ver TODO em index.html) —
-// sem isto, um clique com target="_blank" abre um separador novo só com esta mesma página
-document.querySelectorAll('[data-placeholder="true"]').forEach(link => {
-  link.addEventListener('click', (e) => e.preventDefault());
-});
-
 // menu mobile
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
@@ -156,5 +150,75 @@ if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
         }
       });
     });
+  });
+}
+
+// galeria de screenshots dos projetos — abre ao clicar na imagem de capa de cada card
+const galleryButtons = document.querySelectorAll('.card-image-wrap');
+if (galleryButtons.length) {
+  const overlay = document.createElement('div');
+  overlay.className = 'gallery-overlay';
+  overlay.innerHTML = `
+    <button type="button" class="gallery-close" aria-label="Fechar galeria">✕</button>
+    <button type="button" class="gallery-prev" aria-label="Imagem anterior">←</button>
+    <figure class="gallery-figure">
+      <img class="gallery-image" src="" alt="">
+      <figcaption class="gallery-caption"></figcaption>
+      <span class="gallery-counter"></span>
+    </figure>
+    <button type="button" class="gallery-next" aria-label="Imagem seguinte">→</button>
+  `;
+  document.body.appendChild(overlay);
+
+  const galleryImage = overlay.querySelector('.gallery-image');
+  const galleryCaption = overlay.querySelector('.gallery-caption');
+  const galleryCounter = overlay.querySelector('.gallery-counter');
+  let images = [];
+  let alts = [];
+  let title = '';
+  let index = 0;
+  let lastFocused = null;
+
+  function render() {
+    galleryImage.src = images[index];
+    galleryImage.alt = `${title} — ${alts[index] || ''}`;
+    galleryCaption.textContent = alts[index] || '';
+    galleryCounter.textContent = `${index + 1} / ${images.length}`;
+  }
+
+  function openGallery(btn) {
+    images = JSON.parse(btn.dataset.gallery || '[]');
+    alts = JSON.parse(btn.dataset.galleryAlt || '[]');
+    title = btn.dataset.galleryTitle || '';
+    if (!images.length) return;
+    index = 0;
+    lastFocused = document.activeElement;
+    render();
+    overlay.classList.add('open');
+    document.body.classList.add('gallery-open');
+    overlay.querySelector('.gallery-close').focus();
+  }
+
+  function closeGallery() {
+    overlay.classList.remove('open');
+    document.body.classList.remove('gallery-open');
+    if (lastFocused) lastFocused.focus();
+  }
+
+  function step(delta) {
+    index = (index + delta + images.length) % images.length;
+    render();
+  }
+
+  galleryButtons.forEach(btn => btn.addEventListener('click', () => openGallery(btn)));
+  overlay.querySelector('.gallery-close').addEventListener('click', closeGallery);
+  overlay.querySelector('.gallery-prev').addEventListener('click', () => step(-1));
+  overlay.querySelector('.gallery-next').addEventListener('click', () => step(1));
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeGallery(); });
+  document.addEventListener('keydown', (e) => {
+    if (!overlay.classList.contains('open')) return;
+    if (e.key === 'Escape') closeGallery();
+    else if (e.key === 'ArrowLeft') step(-1);
+    else if (e.key === 'ArrowRight') step(1);
   });
 }

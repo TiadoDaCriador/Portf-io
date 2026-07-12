@@ -24,8 +24,13 @@ exigem a tua conta Google/GitHub, por isso não podiam ser feitas automaticament
 
 ## 2. Publicar no GitHub (opcional, mas necessário para os workflows funcionarem)
 
-- [ ] Criar um repositório no GitHub e fazer push (`git remote add origin <url>
-      && git push -u origin master`) — o repo ainda só existe localmente.
+- [x] Criar um repositório no GitHub e fazer push — feito em 2026-07-12:
+      `https://github.com/TiadoDaCriador/Portf-io`, branch `master` a
+      seguir `origin/master`.
+- [ ] Confirmar que ativaste Settings → Pages → Build and deployment →
+      Source: "GitHub Actions" nesse repositório (passo manual, só no site
+      do GitHub — sem isto o `pages.yml` fica sem efeito mesmo com o push
+      feito).
 - [ ] Se quiseres o deploy automático do Firebase a cada push: gerar o secret
       `FIREBASE_SERVICE_ACCOUNT` com `firebase init hosting:github` (faz isto
       uma vez) e confirmar que o `projectId` em `.github/workflows/deploy.yml`
@@ -49,11 +54,15 @@ exigem a tua conta Google/GitHub, por isso não podiam ser feitas automaticament
       por projetos reais — feito: App Sócios e Maestro Member (estágio na
       MUsa Software), com métricas técnicas reais (574 testes, 6 ecrãs) em
       vez de percentagens inventadas.
-- [ ] Tornar públicos os repositórios reais (`github.com/TiadoDaCriador/Socios_App`
-      e `/Maestro_Member` — atualmente 404 publicamente) e substituir os
-      links "Repositório"/"Demo"/"Vídeo" (`#`) nos cards.
-- [ ] Substituir os contactos placeholder (email, LinkedIn, GitHub) em
-      `html-css-js/index.html`.
+- [ ] Os cards já não têm botões de Repositório/Demo/Vídeo (removidos a teu
+      pedido em 2026-07-12). Se um dia quiseres mostrá-los: tornar públicos
+      os repositórios reais (`github.com/TiadoDaCriador/Socios_App` e
+      `/Maestro_Member` — atualmente 404 publicamente) e voltar a adicionar
+      os links aos cards.
+- [x] Email e GitHub — feito em 2026-07-12: `tiago-silva198@hotmail.com`
+      e `github.com/TiadoDaCriador`.
+- [ ] LinkedIn ainda é placeholder (`linkedin.com/in/tiago-silva-dev`) —
+      substitui em `html-css-js/index.html` quando tiveres o perfil real.
 
 Nota: a pasta `ionic-angular/` foi removida (2026-07-10) — o portefólio é só
 `html-css-js/` agora.
