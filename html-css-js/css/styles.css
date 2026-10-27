@@ -55,7 +55,9 @@ nav{
   background:none;
   border:none;
   cursor:pointer;
-  padding:6px;
+  padding:13px 11px;
+  min-width:44px; min-height:44px;
+  align-items:center; justify-content:center;
 }
 .nav-toggle span{
   width:22px; height:2px; background:var(--dark); display:block; transition:transform .2s, opacity .2s;
@@ -444,3 +446,12 @@ footer{
   .services{grid-template-columns:1fr; margin:40px 0;}
   .card{min-width:260px; max-width:260px;}
 }
+
+/* link para a loja nos cards de projeto */
+.store-link{
+  display:inline-block; margin-top:16px;
+  font-size:13px; font-weight:700; letter-spacing:.5px;
+  padding:12px 18px; min-height:44px;
+  border:1px solid var(--dark); border-radius:24px;
+}
+.store-link:hover, .store-link:focus-visible{background:var(--dark); color:#fff;}

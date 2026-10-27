@@ -61,8 +61,10 @@ exigem a tua conta Google/GitHub, por isso não podiam ser feitas automaticament
       os links aos cards.
 - [x] Email e GitHub — feito em 2026-07-12: `tiago-silva198@hotmail.com`
       e `github.com/TiadoDaCriador`.
-- [ ] LinkedIn ainda é placeholder (`linkedin.com/in/tiago-silva-dev`) —
-      substitui em `html-css-js/index.html` quando tiveres o perfil real.
+- [x] LinkedIn — removido de vez (2026-07-12, a teu pedido), já não é só
+      placeholder. Se um dia quiseres voltar a mostrar LinkedIn, é preciso
+      readicionar o `.contact-tile` e ajustar `.contact-links` de volta
+      para 3 colunas (ver `CLAUDE.md`).
 
 Nota: a pasta `ionic-angular/` foi removida (2026-07-10) — o portefólio é só
 `html-css-js/` agora.

@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tiago Silva — Developer Mobile &amp; Web</title>
-<meta name="description" content="Portfólio de Tiago Silva, estudante e developer mobile e web especializado em Ionic Angular, Firebase e Analytics.">
+<title>Tiago Silva — Developer Ionic Angular e Flutter · Viana do Castelo</title>
+<meta name="description" content="Portfólio de Tiago Silva, developer mobile e web em Viana do Castelo. Ionic Angular, Flutter, Firebase e Analytics. Apps publicadas no Google Play.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Tiago Silva — Developer Mobile & Web">
+<meta property="og:title" content="Tiago Silva — Developer Ionic Angular e Flutter · Viana do Castelo">
 <meta property="og:description" content="Aplicações mobile e web com foco em resultados mensuráveis. Ionic Angular, Firebase, Firestore e Google Analytics.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tiagosilva.dev">
 <meta property="og:image" content="https://tiagosilva.dev/og-image.png">
 <meta property="og:locale" content="pt_PT">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tiago Silva — Developer Mobile & Web">
+<meta name="twitter:title" content="Tiago Silva — Developer Ionic Angular e Flutter · Viana do Castelo">
 <meta name="twitter:description" content="Aplicações mobile e web com foco em resultados mensuráveis. Ionic Angular, Firebase, Firestore e Google Analytics.">
 <meta name="twitter:image" content="https://tiagosilva.dev/og-image.png">
 <meta name="theme-color" content="#1c2596">
@@ -25,12 +25,35 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Tiago Silva",
-  "jobTitle": "Developer Mobile & Web",
-  "url": "https://tiagosilva.dev/",
-  "knowsAbout": ["Ionic Angular", "Firebase", "Firestore", "Google Analytics"],
-  "sameAs": ["https://github.com/TiadoDaCriador"]
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://tiagosilva.dev/#tiago",
+      "name": "Tiago Silva",
+      "jobTitle": "Developer Mobile & Web",
+      "url": "https://tiagosilva.dev/",
+      "knowsAbout": ["Ionic Angular", "Flutter", "Firebase", "Firestore", "Google Analytics"],
+      "sameAs": ["https://github.com/TiadoDaCriador"]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Maestro Sócios",
+      "operatingSystem": "Android",
+      "applicationCategory": "BusinessApplication",
+      "url": "https://play.google.com/store/apps/details?id=com.musasoftware.maestrosocios",
+      "publisher": { "@type": "Organization", "name": "MUSA Software, Lda" },
+      "contributor": { "@id": "https://tiagosilva.dev/#tiago" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Maestro Membros",
+      "operatingSystem": "Android",
+      "applicationCategory": "BusinessApplication",
+      "url": "https://play.google.com/store/apps/details?id=com.musasoftware.membros",
+      "publisher": { "@type": "Organization", "name": "MUSA Software, Lda" },
+      "contributor": { "@id": "https://tiagosilva.dev/#tiago" }
+    }
+  ]
 }
 </script>
 
@@ -158,7 +181,7 @@
   </div>
   <section class="carousel" id="carousel" tabindex="0" aria-label="Projetos em destaque, desliza ou usa as setas para navegar">
     <div class="card reveal">
-      <button type="button" class="card-image-wrap" aria-label="Ver mais imagens do App Sócios" data-gallery-title="App Sócios" data-gallery='[
+      <button type="button" class="card-image-wrap" aria-label="Ver mais imagens do Maestro Sócios" data-gallery-title="Maestro Sócios" data-gallery='[
           "img/gallery/socios-01-login.webp",
           "img/gallery/socios-02-inicio.webp",
           "img/gallery/socios-03-eventos.webp",
@@ -175,14 +198,14 @@
           "Definições da conta",
           "Página da associação"
         ]'>
-        <img class="card-image" src="img/app-socios-login.webp" alt="Ecrã de login da app App Sócios"
+        <img class="card-image" src="img/app-socios-login.webp" alt="Ecrã de login da app Maestro Sócios"
           width="600" height="493" loading="lazy">
         <span class="card-image-hint" aria-hidden="true">Ver mais ↗</span>
       </button>
       <div class="card-content">
         <div>
           <span class="tag">APP MOBILE</span>
-          <h3>App Sócios</h3>
+          <h3>Maestro Sócios</h3>
           <p class="card-context">Estágio · MUsa Software</p>
           <p class="card-desc">
             Aplicação móvel completa de gestão de sócios para associações musicais, com login
@@ -195,12 +218,13 @@
             <span>Ionic Angular</span><span>Capacitor</span><span>REST API (JWT)</span>
             <span>Firebase</span><span>Sentry</span>
           </div>
+          <a class="store-link" href="https://play.google.com/store/apps/details?id=com.musasoftware.maestrosocios" target="_blank" rel="noopener">Ver Maestro Sócios no Google Play ↗<span class="sr-only"> (abre numa nova aba)</span></a>
         </div>
       </div>
     </div>
 
     <div class="card reveal">
-      <button type="button" class="card-image-wrap" aria-label="Ver mais imagens do Maestro Member" data-gallery-title="Maestro Member" data-gallery='[
+      <button type="button" class="card-image-wrap" aria-label="Ver mais imagens do Maestro Membros" data-gallery-title="Maestro Membros" data-gallery='[
           "img/gallery/maestro-01-login.webp",
           "img/gallery/maestro-02-inicio.webp",
           "img/gallery/maestro-03-agenda.webp",
@@ -217,14 +241,14 @@
           "Calendário mensal",
           "Confirmação de presença em eventos"
         ]'>
-        <img class="card-image" src="img/maestro-member-login.webp" alt="Ecrã de login da app Maestro Member"
+        <img class="card-image" src="img/maestro-member-login.webp" alt="Ecrã de login da app Maestro Membros"
           width="600" height="493" loading="lazy">
         <span class="card-image-hint" aria-hidden="true">Ver mais ↗</span>
       </button>
       <div class="card-content">
         <div>
           <span class="tag">APP MOBILE</span>
-          <h3>Maestro Member</h3>
+          <h3>Maestro Membros</h3>
           <p class="card-context">Estágio · MUsa Software</p>
           <p class="card-desc">
             App de gestão de banda musical: dashboard de início, confirmação de presença em
@@ -237,6 +261,60 @@
             <span>Ionic Angular</span><span>Angular Signals</span><span>Capacitor</span>
             <span>TypeScript</span><span>SCSS</span>
           </div>
+          <a class="store-link" href="https://play.google.com/store/apps/details?id=com.musasoftware.membros" target="_blank" rel="noopener">Ver Maestro Membros no Google Play ↗<span class="sr-only"> (abre numa nova aba)</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <button type="button" class="card-image-wrap" aria-label="Ver mais imagens do Monção Transportes" data-gallery-title="Monção Transportes" data-gallery='[
+           "img/gallery/moncao-01-inicio.webp",
+           "img/gallery/moncao-02-mapa-proximas.webp",
+           "img/gallery/moncao-03-rede.webp",
+           "img/gallery/moncao-04-linhas.webp",
+           "img/gallery/moncao-05-linha-horario.webp"
+          ]' data-gallery-alt='[
+           "Página inicial com pesquisa de paragem e aviso de alterações ao serviço",
+           "Mapa com a rota, paragens e próximas chegadas",
+           "Mapa da rede com as linhas M1 e M2",
+           "Lista de linhas",
+           "Horário de partidas da linha M1"
+          ]'>
+        <img class="card-image" src="img/moncao-transportes-card.webp" alt="Página inicial da app Monção Transportes"
+          width="600" height="493" loading="lazy">
+        <span class="card-image-hint" aria-hidden="true">Ver mais ↗</span>
+      </button>
+      <div class="card-content">
+        <div>
+          <span class="tag">PROJETO PESSOAL</span>
+          <h3>Monção Transportes</h3>
+          <p class="card-context">Projeto pessoal · não publicado</p>
+          <p class="card-desc">
+            App de consulta do transporte público do concelho de Monção: linhas, paragens, horários, mapa e planeador de rotas com transbordo. Os horários seguem o modelo GTFS e os veículos no mapa são simulados, não há GPS real. Ficou como projeto pessoal e nunca foi publicado.
+          </p>
+        </div>
+        <div class="card-bottom">
+          <div class="stack">
+            <span>React</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL / PostGIS</span>
+          </div>
+          <a class="store-link" href="demos/moncao/" target="_blank" rel="noopener">Abrir demonstração ↗<span class="sr-only"> (abre numa nova aba)</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="card card-text reveal">
+      <div class="card-content">
+        <div>
+          <span class="tag">PROJETO PESSOAL</span>
+          <h3>Órbita</h3>
+          <p class="card-context">Projeto pessoal · não publicado</p>
+          <p class="card-desc">
+            Plataforma multi-tenant para gestão de associações e clubes: sócios, quotas, eventos e conteúdo, com isolamento de dados por empresa. Projeto pessoal que nunca saiu da fase de desenvolvimento.
+          </p>
+        </div>
+        <div class="card-bottom">
+          <div class="stack">
+            <span>NestJS</span><span>Prisma</span><span>PostgreSQL</span><span>Next.js</span>
+          </div>
         </div>
       </div>
     </div>
@@ -246,7 +324,7 @@
   <div class="services">
     <div class="service reveal">
       <div><span class="tag">APPS</span><h3>MOBILE</h3></div>
-      <p>Ionic Angular, Capacitor.</p>
+      <p>Ionic Angular, Capacitor, Flutter.</p>
     </div>
     <div class="service reveal">
       <div><span class="tag">LINGUAGENS</span><h3>WEB</h3></div>
