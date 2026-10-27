@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tiagosilva.dev/sitemap.xml
+Sitemap: https://portfolio-tiago-silva.web.app/sitemap.xml

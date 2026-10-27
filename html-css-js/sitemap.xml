@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tiagosilva.dev/</loc>
+    <loc>https://portfolio-tiago-silva.web.app/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://tiagosilva.dev/sobre</loc>
+    <loc>https://portfolio-tiago-silva.web.app/sobre</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://tiagosilva.dev/projetos/maestro-socios</loc>
+    <loc>https://portfolio-tiago-silva.web.app/projetos/maestro-socios</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tiagosilva.dev/projetos/maestro-membros</loc>
+    <loc>https://portfolio-tiago-silva.web.app/projetos/maestro-membros</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tiagosilva.dev/projetos/moncao-transportes</loc>
+    <loc>https://portfolio-tiago-silva.web.app/projetos/moncao-transportes</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tiagosilva.dev/projetos/orbita</loc>
+    <loc>https://portfolio-tiago-silva.web.app/projetos/orbita</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
