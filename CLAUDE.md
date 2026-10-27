@@ -26,6 +26,54 @@ reviving — but some later uncommitted work on top of that (wiring up a
 deliberately discarded, not committed, at Tiago's choice, and is **not**
 recoverable — only the original committed version is.
 
+## REDESIGN 2026-10-27 (branch `redesign`) — read this first
+
+The site was redesigned ("grelha de caderno", inspired by the structure/style of
+mijobello.com — structure and visual language only, none of its content/images/
+text). **Where the sections below describe the old design (Bebas Neue/navy/cream,
+drag carousel, phone/browser mockups, Competências tiles, `.card`s, 800px nav
+dropdown, `.contact-tile` styling), the redesign supersedes them.** What survives
+unchanged: content decisions (no Flutter, no LinkedIn, no repo links, no stat
+blocks, MUsa credit, privacy rules for screenshots), analytics/consent, CI,
+Firebase config.
+
+- **Tokens/typography come from the Órbita platform** (`Desktop/Identidade
+  Orbita/DESIGN_SYSTEM.md`): papel `#EDEAE0` / tinta `#101014`, dark mode inverts
+  them, accent `#C4442B` only on hover/states, single family **Archivo** (variable,
+  `wdth` axis → `font-stretch:85%`), pill buttons/tags with 1px outline, 20px
+  cards, 1px `--fio` lines. One deliberate deviation: `--grafite` is `#5C5B53` in
+  light mode (Órbita's `#6E6D64` is 4.3:1 on papel, fails AA for 11px labels).
+- **Language**: PT-PT titles — "developer.", "projetos.", "serviços.", "vamos
+  falar?" with small uppercase eyebrows ("O", "Alguns", "Os meus", "Então,").
+- **Pages**: `index.html` (topbar with 5 live clocks + theme toggle + menu, hero,
+  "developer.", "projetos." switcher, marquee, "serviços.", contact), `sobre.html`
+  (the full bio text), `projetos/{maestro-socios,maestro-membros,moncao-transportes}.html`
+  (facts, features, screenshot gallery with lightbox, prev/next). Órbita was dropped
+  from the project list (Tiago's call). The inner pages are **generated** by a
+  throw-away script (not in the repo) from one template — if you change the
+  header/menu/footer, change it in all 5 HTML files (grep `id="menuToggle"`).
+- **CSP forbids inline `style=""` and inline scripts** (`firebase.json`), so the
+  theme is applied by `js/theme.js` loaded synchronously in `<head>`; it also adds
+  `html.js`, which gates the JS-only UI (project thumbs/arrows, `hidden` panels).
+  Never use `style="..."` in markup; set styles from JS via `el.style.x`.
+- **Hero photo is a placeholder** (`ts.` monogram in `.portrait`) until Tiago
+  supplies a photo — the swap is documented in an HTML comment in the hero.
+- Hero orbital SVG is a decorative mark drawn for this site (Tiago approved).
+- Menu overlay sits at z-index 30, below the topbar (40), so the Menu/Fechar
+  button stays clickable; opening it sets `inert` on `main`/`footer`.
+- Clock hiding at small widths is scoped to `.clocks` (topbar) — the menu keeps all
+  five clocks; scoping it wrong hid them in the menu once.
+- `.reveal-line` has `padding-bottom:.16em; margin-bottom:-.16em` because Archivo
+  has descenders (g, j, p, ç) that `overflow:hidden` would clip (Bebas had none).
+- `carousel_interaction` GA event name was kept for the new project switcher so
+  GA4 history doesn't break; sections observed are now `#sobre #projetos #servicos
+  #contacto`; contact clicks use `data-method` on the links.
+- Verified: html-validate clean, Lighthouse (local, no compression) a11y/BP/SEO 1.00,
+  performance ~0.88 (CI only warns below 0.9; Google Fonts CSS + GSAP are the
+  render-blocking cost).
+- `html-css-js/demos/moncao/` is a built demo of Monção; its project page links to
+  it ("Ver demo").
+
 ## html-css-js/ — static, ready to deploy
 
 - No build step. Open `index.html` directly in a browser, or use the VS Code

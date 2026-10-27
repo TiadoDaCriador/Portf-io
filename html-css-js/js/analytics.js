@@ -71,11 +71,10 @@ if (stored === 'granted') {
 // Enquanto o consentimento não for dado, gtag() só empilha no dataLayer local
 // (nada é enviado); depois de loadGa() os eventos seguintes contam no GA4.
 
-// Cliques nos contactos (email / LinkedIn / GitHub)
-document.querySelectorAll('.contact-tile').forEach(tile => {
-  tile.addEventListener('click', () => {
-    const method = tile.querySelector('.tag');
-    gtag('event', 'contact_click', { method: method ? method.textContent.toLowerCase() : 'desconhecido' });
+// Cliques nos contactos (email / GitHub), marcados com data-method no HTML
+document.querySelectorAll('[data-method]').forEach(link => {
+  link.addEventListener('click', () => {
+    gtag('event', 'contact_click', { method: link.dataset.method || 'desconhecido' });
   });
 });
 
@@ -88,7 +87,7 @@ document.querySelectorAll('.hero-actions a').forEach(cta => {
 
 // Visualização de secções (uma vez por sessão de página)
 if ('IntersectionObserver' in window) {
-  const sections = document.querySelectorAll('#sobre, #projetos, #competencias, #contacto');
+  const sections = document.querySelectorAll('#sobre, #projetos, #servicos, #contacto');
   const sectionObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -99,16 +98,14 @@ if ('IntersectionObserver' in window) {
   sections.forEach(s => sectionObserver.observe(s));
 }
 
-// Primeira interação com o carrossel de projetos (um único evento, seja qual
-// for o tipo de input)
-const carouselEl = document.getElementById('carousel');
-if (carouselEl) {
-  let carouselTracked = false;
-  ['mousedown', 'touchstart', 'keydown'].forEach(evt => {
-    carouselEl.addEventListener(evt, () => {
-      if (carouselTracked) return;
-      carouselTracked = true;
-      gtag('event', 'carousel_interaction', { input: evt });
-    }, { once: true, passive: true });
+// Primeira interação com o seletor de projetos (miniaturas ou setas). O nome do
+// evento mantém-se (carousel_interaction) para o histórico no GA4 não partir.
+const worksEl = document.querySelector('.works');
+if (worksEl) {
+  let worksTracked = false;
+  worksEl.addEventListener('click', (e) => {
+    if (worksTracked || !e.target.closest('.thumb, #worksPrev, #worksNext')) return;
+    worksTracked = true;
+    gtag('event', 'carousel_interaction', { input: 'click' });
   });
 }
