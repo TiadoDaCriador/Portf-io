@@ -1,19 +1,17 @@
-# Deploy para o Firebase Hosting:
-# - push em master  → site "live"
-# - pull request    → canal de pré-visualização temporário (URL no comentário do PR)
+# Deploy para o Firebase Hosting, só manual (Actions → Deploy Firebase Hosting → Run workflow).
+# Estava ligado a push em master e a pull requests, mas sem o segredo abaixo falhava
+# sempre com cruz vermelha. O site publica-se à mão com `firebase deploy --only hosting`.
 #
-# Requer o secret FIREBASE_SERVICE_ACCOUNT no repositório GitHub — ver README
-# (gerado com `firebase init hosting:github` ou na consola Google Cloud).
+# Para voltar ao deploy automático: criar o secret FIREBASE_SERVICE_ACCOUNT no repositório
+# (`firebase init hosting:github` ou consola Google Cloud) e acrescentar em `on:`
+#   push: { branches: [master] }
 name: Deploy Firebase Hosting
 
 on:
-  push:
-    branches: [master]
-  pull_request:
+  workflow_dispatch:
 
 jobs:
   deploy-live:
-    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,15 +20,4 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           channelId: live
-          projectId: portfolio-tiago-silva
-
-  deploy-preview:
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           projectId: portfolio-tiago-silva

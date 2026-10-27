@@ -1,13 +1,13 @@
-# Deploy alternativo/paralelo ao Firebase Hosting (ver deploy.yml): publica
-# html-css-js/ no GitHub Pages a cada push a master.
+# Deploy alternativo ao Firebase Hosting (ver deploy.yml): publica html-css-js/ no
+# GitHub Pages. Só manual: o site vive no Firebase e, sem o Pages ativo, isto falhava
+# com cruz vermelha a cada push.
 #
-# Configuração única necessária no repositório GitHub antes do 1º push:
-# Settings → Pages → Build and deployment → Source: "GitHub Actions".
+# Para usar: Settings → Pages → Build and deployment → Source: "GitHub Actions" e depois
+# Actions → Deploy GitHub Pages → Run workflow. Para o voltar a ligar aos pushes,
+# acrescentar em `on:`  push: { branches: [master] }
 name: Deploy GitHub Pages
 
 on:
-  push:
-    branches: [master]
   workflow_dispatch:
 
 permissions:
