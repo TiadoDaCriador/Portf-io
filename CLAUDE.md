@@ -106,6 +106,29 @@ Firebase config.
 - `html-css-js/demos/moncao/` is a built demo of Monção; its project page links to
   it ("Ver demo").
 
+## LIVE since 2026-10-27
+
+- **Site: https://portfolio-tiago-silva.web.app** (Firebase project `portfolio-tiago-silva`,
+  created by Tiago's assistant session; `.firebaserc` default matches). Not the "Maestro"
+  project (`maestro-a7976`), which belongs to the MUsa apps: always deploy with
+  `firebase deploy --only hosting --project portfolio-tiago-silva`.
+- Deploy is **manual** (needs `firebase login --reauth` in an interactive terminal — it
+  can't run from Claude's non-TTY shell; a visible `cmd` window launched via PowerShell
+  `Start-Process` works). `deploy.yml` and `pages.yml` were switched to `workflow_dispatch`
+  only because without the `FIREBASE_SERVICE_ACCOUNT` secret / Pages enabled they failed on
+  every push. `ci.yml` (html-validate + Lighthouse) still runs on push.
+- All "tiagosilva.dev" references became `portfolio-tiago-silva.web.app` (canonical, og,
+  sitemap, robots). A custom domain is not planned.
+- Verified live: all pages 200, security headers (CSP etc.) present, no CSP violations in the
+  console. The only console noise is the Monção demo trying `/__sem-api/*` (404) and falling
+  back to its mock data on purpose.
+- Known nit: `/` is served with `Cache-Control: max-age=3600` (the `**/*.html` header rule
+  doesn't match the `/` URL), so a new deploy can take up to an hour to show on the home page.
+- GA4: the code uses `G-JSGN6T85G` (the existing "Portfolio Tiago Silva" property). Creating
+  the Firebase project also created an extra empty GA4 property by mistake; it can be deleted.
+  Still to confirm in GA4 → Admin → Data streams that the ID is right (9 chars after `G-`,
+  usually 10), and to update that stream's URL to the `.web.app` address.
+
 ## html-css-js/ — static, ready to deploy
 
 - No build step. Open `index.html` directly in a browser, or use the VS Code
