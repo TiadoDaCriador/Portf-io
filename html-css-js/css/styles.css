@@ -210,7 +210,7 @@ button{font:inherit; color:inherit;}
   min-height:340px;
   overflow:hidden;
 }
-.portrait img{width:100%; height:100%; object-fit:cover;}
+.portrait img{width:100%; height:100%; object-fit:cover; object-position:50% 30%;}
 .portrait-mono{
   font-size:clamp(120px, 15vw, 220px); font-weight:700; font-stretch:85%;
   letter-spacing:-.06em; line-height:1;
@@ -453,6 +453,8 @@ button{font:inherit; color:inherit;}
   gap:clamp(24px, 4vw, 64px);
   padding-block:clamp(32px, 5vw, 64px);
 }
+.foto-perfil{margin:0 0 24px; max-width:360px;}
+.foto-perfil img{width:100%; height:auto; aspect-ratio:1/1; object-fit:cover; border-radius:var(--radius); border:1px solid var(--fio);}
 .facts{border-top:1px solid var(--fio);}
 .facts div{padding:14px 0; border-bottom:1px solid var(--fio);}
 .facts dt{margin-bottom:6px;}
