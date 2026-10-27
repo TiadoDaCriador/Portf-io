@@ -68,12 +68,17 @@ Firebase config.
   `moncao-transportes/frontend/public/brasao.svg` (inline SVG, `currentColor`, C2PA
   metadata stripped); Órbita = the orbit logo redrawn statically from
   `Orbita/frontend/components/shared/orbit-logo.tsx` (4 orbits, 2 nodes, accent + latão
-  dots); the two Maestro apps = the round "m" mark **cropped from their login
-  screenshots** (`img/logos/maestro-*.webp`, 126px, shown with `border-radius:50%`),
-  because the Maestro source folders (`Desktop/App_Socios`, `Desktop/maestro_member`) no
-  longer exist at the paths listed further down. If Tiago has the original logo files,
-  swap those two for the real ones.
-- **No text may cross the vertical grid lines.** The lines sit at `--side` from each edge
+  dots); the two Maestro apps = the gold "m" mark from `Pictures/Maestro-2_1.png`
+  (Tiago's own high-res file; no SVG of it exists anywhere on disk — `Downloads/SVG/Asset 1.svg`
+  and `Pictures/SVG/Asset 2.svg` are unrelated). Its baked-in drop shadow was removed by keying
+  on gold (r−b) in a canvas, then exported as `img/logos/maestro-membros.webp` (gold, used as
+  an `<img>`) and `img/logos/maestro-mark.webp` (white silhouette). **Maestro Sócios uses the
+  silhouette as a CSS mask on `currentColor`** (`.proj-logo-mask`) because its original mark
+  is black and would vanish on the dark project card; this way it follows the theme.
+- **The layout fills the full viewport width** (no `max-width` on `.sheet`; `--side` is only
+  `clamp(10px, 1.5vw, 24px)`). It used to cap at 1440px with a 64px `--side`, which left
+  empty margins on wide screens (Tiago noticed on desktop, 2026-10-27).
+**No text may cross the vertical grid lines.** The lines sit at `--side` from each edge
   of every `.lines` block, so anything full-width needs `padding-inline` of at least
   `--side + --pad` on the outside (the project prev/next links crossed them once). A
   Playwright text-node scan (rect vs line x, 4 widths × 6 pages) returned 0 crossings.

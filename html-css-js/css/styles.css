@@ -16,7 +16,7 @@
   --fio-forte:rgba(16,16,20,.28);
   --accent:#C4442B;
 
-  --side:clamp(10px, 4.5vw, 64px);   /* coluna lateral vazia entre as linhas verticais */
+  --side:clamp(10px, 1.5vw, 24px);   /* coluna lateral vazia entre as linhas verticais */
   --pad:clamp(16px, 3vw, 40px);
   --header-h:64px;
   --radius:20px;
@@ -87,7 +87,12 @@ button{font:inherit; color:inherit;}
   height:.68em; width:.68em;
   vertical-align:-.02em; margin-right:.2em;
 }
-.proj-logo-round{border-radius:50%;}
+/* silhueta da marca Maestro Sócios: herda a cor do texto, por isso serve nos dois temas */
+.proj-logo-mask{
+  background:currentColor;
+  -webkit-mask:url('../img/logos/maestro-mark.webp') center/contain no-repeat;
+  mask:url('../img/logos/maestro-mark.webp') center/contain no-repeat;
+}
 /* rótulo pequeno em maiúsculas acima dos títulos */
 .eyebrow{
   font-size:11px; font-weight:500; letter-spacing:.15em; line-height:1.4;
@@ -113,8 +118,6 @@ button{font:inherit; color:inherit;}
 /* ---- GRELHA DE CADERNO -------------------------------------------------- */
 .sheet{
   position:relative;
-  max-width:1440px; margin-inline:auto;
-  border-inline:1px solid var(--fio);
   overflow-x:clip;
 }
 /* duas linhas verticais a delimitar as colunas laterais vazias */
