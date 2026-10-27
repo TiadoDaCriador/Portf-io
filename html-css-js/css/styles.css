@@ -81,6 +81,13 @@ button{font:inherit; color:inherit;}
   line-height:.95;
   text-transform:none;
 }
+/* logo do projeto, ao lado do nome (SVG usa currentColor, o raster vem em círculo) */
+.proj-logo{
+  display:inline-block; flex:none;
+  height:.68em; width:.68em;
+  vertical-align:-.02em; margin-right:.2em;
+}
+.proj-logo-round{border-radius:50%;}
 /* rótulo pequeno em maiúsculas acima dos títulos */
 .eyebrow{
   font-size:11px; font-weight:500; letter-spacing:.15em; line-height:1.4;
@@ -470,11 +477,14 @@ button{font:inherit; color:inherit;}
 .shot-cap{font-size:11px; font-weight:500; letter-spacing:.15em; text-transform:uppercase; color:var(--grafite);}
 
 .project-nav{display:grid; grid-template-columns:1fr 1fr;}
+/* o texto fica dentro das linhas verticais: o lado de fora leva side + pad */
 .project-nav a{
   display:flex; flex-direction:column; gap:10px;
   padding:clamp(24px, 4vw, 48px) var(--pad);
   transition:background-color .25s;
 }
+.project-nav a:first-child{padding-left:calc(var(--side) + var(--pad));}
+.project-nav a:last-child{padding-right:calc(var(--side) + var(--pad));}
 .project-nav a:hover{background:var(--papel-fundo);}
 .project-nav a + a{border-left:1px solid var(--fio); align-items:flex-end; text-align:right;}
 .project-nav strong{font-size:clamp(28px, 4vw, 56px); font-weight:700; font-stretch:85%; letter-spacing:-.04em; line-height:1;}
@@ -578,7 +588,7 @@ button{font:inherit; color:inherit;}
   .topbar-actions{margin-left:auto;}
   .topbar-inner{gap:10px;}
   .project-nav{grid-template-columns:1fr;}
-  .project-nav a + a{border-left:0; border-top:1px solid var(--fio); align-items:flex-start; text-align:left;}
+  .project-nav a + a{border-left:0; border-top:1px solid var(--fio); align-items:flex-start; text-align:left; padding-left:calc(var(--side) + var(--pad));}
   .foot{flex-direction:column; align-items:flex-start;}
 }
 

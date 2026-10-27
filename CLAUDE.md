@@ -63,6 +63,20 @@ Firebase config.
   The page says outright that the screens use demo data. The inner pages are **generated** by a
   throw-away script (not in the repo) from one template — if you change the
   header/menu/footer, change it in all 5 HTML files (grep `id="menuToggle"`).
+- **Each project has its logo next to the name** (`.proj-logo`, in the home card titles,
+  the project page `h1` and the prev/next links). Monção = the two-arch mark from
+  `moncao-transportes/frontend/public/brasao.svg` (inline SVG, `currentColor`, C2PA
+  metadata stripped); Órbita = the orbit logo redrawn statically from
+  `Orbita/frontend/components/shared/orbit-logo.tsx` (4 orbits, 2 nodes, accent + latão
+  dots); the two Maestro apps = the round "m" mark **cropped from their login
+  screenshots** (`img/logos/maestro-*.webp`, 126px, shown with `border-radius:50%`),
+  because the Maestro source folders (`Desktop/App_Socios`, `Desktop/maestro_member`) no
+  longer exist at the paths listed further down. If Tiago has the original logo files,
+  swap those two for the real ones.
+- **No text may cross the vertical grid lines.** The lines sit at `--side` from each edge
+  of every `.lines` block, so anything full-width needs `padding-inline` of at least
+  `--side + --pad` on the outside (the project prev/next links crossed them once). A
+  Playwright text-node scan (rect vs line x, 4 widths × 6 pages) returned 0 crossings.
 - **CSP forbids inline `style=""` and inline scripts** (`firebase.json`), so the
   theme is applied by `js/theme.js` loaded synchronously in `<head>`; it also adds
   `html.js`, which gates the JS-only UI (project thumbs/arrows, `hidden` panels).
