@@ -190,7 +190,7 @@ button{font:inherit; color:inherit;}
 .hero-grid{
   position:relative;
   display:grid;
-  grid-template-columns:minmax(200px, 3.4fr) minmax(0, 6fr) minmax(104px, 1.6fr);
+  grid-template-columns:minmax(200px, 3.4fr) minmax(0, 7.6fr);
   min-height:min(78vh, 700px);
 }
 .portrait{
@@ -221,16 +221,6 @@ button{font:inherit; color:inherit;}
 }
 .roles li span{color:var(--grafite);}
 .hero-actions{display:flex; flex-wrap:wrap; gap:12px;}
-.hero-mark{
-  display:flex; flex-direction:column; justify-content:space-between; align-items:flex-end; gap:20px;
-  padding:clamp(16px, 2vw, 28px);
-  border-left:1px solid var(--fio);
-  text-align:right;
-}
-.orbit{width:min(100%, 150px); height:auto; color:var(--tinta);}
-.orbit-spin{transform-origin:0 0; animation:orbit-spin 80s linear infinite;}
-.orbit-node{fill:var(--accent);}
-@keyframes orbit-spin{to{transform:rotate(360deg);}}
 
 /* ---- O DEVELOPER -------------------------------------------------------- */
 .about-grid{
@@ -481,8 +471,8 @@ button{font:inherit; color:inherit;}
 /* letra a letra (GSAP, ver js/script.js). O padding evita cortar os descendentes
    (g, j, p, ç) por causa do overflow:hidden; a margem negativa compensa-o. */
 .reveal-line{
-  display:inline-block; overflow:hidden;
-  padding-bottom:.16em; margin-bottom:-.16em;
+  display:inline-block; overflow:hidden; white-space:nowrap;
+  padding:0 .06em .16em 0; margin:0 -.06em -.16em 0;
 }
 .char{display:inline-block; will-change:transform, opacity;}
 
@@ -547,13 +537,6 @@ button{font:inherit; color:inherit;}
   .hero-grid{grid-template-columns:1fr; min-height:0;}
   .portrait{min-height:0; aspect-ratio:16/10; border-bottom:1px solid var(--fio);}
   .hero-main{border-left:0;}
-  /* o desenho passa para o canto da foto, em pequeno (por cima do fundo tinta) */
-  .hero-mark{
-    position:absolute; top:0; right:0;
-    border-left:0; padding:14px;
-  }
-  .hero-mark .orbit{width:64px; color:var(--papel);}
-  .hero-mark .eyebrow{display:none;}
 
   .about-grid, .contact-grid, .page-grid{grid-template-columns:1fr;}
   .contact-grid{align-items:start;}
@@ -579,7 +562,7 @@ button{font:inherit; color:inherit;}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
   .reveal{opacity:1; transform:none; transition:none;}
-  .orbit-spin, .marquee-track, .js .work.is-active{animation:none;}
+  .marquee-track, .js .work.is-active{animation:none;}
   .marquee{overflow-x:auto;}
   .marquee-group[aria-hidden="true"]{display:none;}
   * {transition-duration:.01ms !important;}

@@ -41,7 +41,7 @@ function showConsentBanner(){
   banner.setAttribute('aria-label', 'Consentimento de cookies de estatística');
   banner.innerHTML =
     '<p>Este site usa o Google Analytics para perceber como é visitado. ' +
-    'Só é ativado se aceitares — nenhum dado é recolhido sem o teu consentimento.</p>' +
+    'Só é ativado se aceitares. Sem o teu consentimento, não se recolhe nada.</p>' +
     '<div class="consent-actions">' +
     '<button type="button" class="btn btn-primary" id="consentAccept">Aceitar</button>' +
     '<button type="button" class="btn btn-ghost" id="consentReject">Recusar</button>' +

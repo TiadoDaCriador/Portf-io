@@ -58,13 +58,15 @@ Firebase config.
   Never use `style="..."` in markup; set styles from JS via `el.style.x`.
 - **Hero photo is a placeholder** (`ts.` monogram in `.portrait`) until Tiago
   supplies a photo — the swap is documented in an HTML comment in the hero.
-- Hero orbital SVG is a decorative mark drawn for this site (Tiago approved).
+- The hero orbital SVG was added and then removed at Tiago's request (2026-10-27). Don't bring it back without asking.
+- Copy was rewritten with the no-ai-slop rules (no em dashes, no "not X, it's Y" framing, short factual sentences, `tu` form). Keep new text in that register.
+- `.reveal-line` splits titles into per-letter inline-blocks: a normal space collapses ("vamosfalar"), so spaces become ` `, and multi-word titles are split into one `.reveal-line` per visual line (`vamos` / `falar?`), with `white-space:nowrap`.
 - Menu overlay sits at z-index 30, below the topbar (40), so the Menu/Fechar
   button stays clickable; opening it sets `inert` on `main`/`footer`.
 - Clock hiding at small widths is scoped to `.clocks` (topbar) — the menu keeps all
   five clocks; scoping it wrong hid them in the menu once.
-- `.reveal-line` has `padding-bottom:.16em; margin-bottom:-.16em` because Archivo
-  has descenders (g, j, p, ç) that `overflow:hidden` would clip (Bebas had none).
+- `.reveal-line` has bottom padding (.16em) and a little right padding (.06em), each cancelled by a negative margin, because Archivo
+  has descenders (g, j, p, ç) and negative tracking eats the last letter's edge, both clipped by `overflow:hidden` (Bebas had neither).
 - `carousel_interaction` GA event name was kept for the new project switcher so
   GA4 history doesn't break; sections observed are now `#sobre #projetos #servicos
   #contacto`; contact clicks use `data-method` on the links.

@@ -126,7 +126,8 @@ if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
     const chars = [...text].map(letter => {
       const span = document.createElement('span');
       span.className = 'char';
-      span.textContent = letter === ' ' ? ' ' : letter;
+      // espaço normal colapsava dentro do inline-block e "vamos falar" ficava "vamosfalar"
+    span.textContent = letter === ' ' ? ' ' : letter;
       line.appendChild(span);
       return span;
     });
@@ -205,7 +206,7 @@ if (galleries.length) {
 
   const render = () => {
     galleryImage.src = images[index];
-    galleryImage.alt = `${title} — ${alts[index] || ''}`;
+    galleryImage.alt = `${title}: ${alts[index] || ''}`;
     galleryCaption.textContent = alts[index] || '';
     galleryCounter.textContent = `${index + 1} / ${images.length}`;
   };
