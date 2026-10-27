@@ -259,6 +259,22 @@ button{font:inherit; color:inherit;}
   border-radius:clamp(16px, 2.4vw, 27px);
 }
 
+/* janela de browser, para os ecrãs de desktop (back-office da Órbita) */
+.browser{
+  display:block; width:100%;
+  border:1px solid var(--fio-forte); border-radius:14px; overflow:hidden;
+  background:var(--papel);
+}
+.browser::before{
+  content:""; display:block; height:22px;
+  border-bottom:1px solid var(--fio-forte);
+  background:
+    radial-gradient(circle at 12px 11px, var(--fio-forte) 3px, transparent 3.5px),
+    radial-gradient(circle at 26px 11px, var(--fio-forte) 3px, transparent 3.5px),
+    radial-gradient(circle at 40px 11px, var(--fio-forte) 3px, transparent 3.5px);
+}
+.browser img{width:100%; height:auto; aspect-ratio:1200/750; object-fit:cover; object-position:top left;}
+
 /* ---- PROJETOS ------------------------------------------------------------ */
 .works{
   display:grid; grid-template-columns:auto minmax(0, 1fr);
@@ -274,6 +290,7 @@ button{font:inherit; color:inherit;}
   opacity:.55; transition:opacity .2s, border-color .2s, transform .2s;
 }
 .thumb img{width:100%; height:100%; object-fit:cover; object-position:top;}
+.thumb-wide img{object-position:30% top;}
 .thumb:hover{opacity:1; transform:translateY(-2px);}
 .thumb.is-active{opacity:1; border-color:var(--tinta);}
 .thumb-n{
@@ -311,6 +328,11 @@ button{font:inherit; color:inherit;}
   overflow:hidden;
   background:color-mix(in srgb, var(--papel) 7%, transparent);
 }
+.work-media:has(.browser){align-items:center; padding-bottom:clamp(24px, 3vw, 40px);}
+.work-media .browser{
+  border-color:color-mix(in srgb, var(--papel) 35%, transparent);
+}
+.work-media .browser::before{border-bottom-color:color-mix(in srgb, var(--papel) 35%, transparent);}
 .work-media .device{
   width:min(100%, 270px);
   border-color:color-mix(in srgb, var(--papel) 35%, transparent);
@@ -442,8 +464,9 @@ button{font:inherit; color:inherit;}
   display:flex; flex-direction:column; gap:12px; align-items:stretch;
   padding:0; border:0; background:none; cursor:pointer; text-align:left;
 }
-.shot .device{transition:transform .25s ease, border-color .2s;}
-.shot:hover .device{transform:translateY(-4px); border-color:var(--tinta);}
+.shots-wide{grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));}
+.shot .device, .shot .browser{transition:transform .25s ease, border-color .2s;}
+.shot:hover .device, .shot:hover .browser{transform:translateY(-4px); border-color:var(--tinta);}
 .shot-cap{font-size:11px; font-weight:500; letter-spacing:.15em; text-transform:uppercase; color:var(--grafite);}
 
 .project-nav{display:grid; grid-template-columns:1fr 1fr;}

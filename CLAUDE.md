@@ -48,8 +48,19 @@ Firebase config.
 - **Pages**: `index.html` (topbar with 5 live clocks + theme toggle + menu, hero,
   "developer.", "projetos." switcher, marquee, "serviços.", contact), `sobre.html`
   (the full bio text), `projetos/{maestro-socios,maestro-membros,moncao-transportes}.html`
-  (facts, features, screenshot gallery with lightbox, prev/next). Órbita was dropped
-  from the project list (Tiago's call). The inner pages are **generated** by a
+  (facts, features, screenshot gallery with lightbox, prev/next), plus `projetos/orbita.html`.
+  **Órbita is the 4th project again** (Tiago first asked to drop it, then asked for it
+  back 2026-10-27): "plataforma de gestão" multi-tenant (NestJS + Prisma + PostgreSQL,
+  Next.js back-office, Docker). Its 7 screenshots (`img/gallery/orbita-0N-*.webp`, 1200px
+  wide, 1440×900 captures) are **desktop**, so they use a CSS browser-window frame
+  (`.browser`, `.shots-wide`) instead of the phone `.device`. They were captured from the
+  Órbita test stack (`docker compose up` in `Desktop/Orbita`) logged in as the *seed*
+  account `admin@norte.pt` (fictional data: made-up names, NIFs 5001000xx, `socioN@norte.pt`),
+  never real member data. To reshoot: the Órbita README documents the seed accounts; run the
+  stack with a DB port override (a separate Postgres of Tiago's already holds 5432 — don't
+  touch it), wait ~9s after login so the "Bem-vindo, Admin" toast disappears. Don't name
+  Green Odyssey (the first real tenant per Órbita's CLAUDE.md) on the site without asking.
+  The page says outright that the screens use demo data. The inner pages are **generated** by a
   throw-away script (not in the repo) from one template — if you change the
   header/menu/footer, change it in all 5 HTML files (grep `id="menuToggle"`).
 - **CSP forbids inline `style=""` and inline scripts** (`firebase.json`), so the
